@@ -18,7 +18,7 @@ const logs = ref<string[]>([]);
 const isRunning = ref(false);
 
 const runScript = () => {
-  isRunning.ref = true;
+  isRunning.value = true;
   logs.value.push("[SYSTEM] Executing script...");
   // Future: Connect to real SDK runner
   setTimeout(() => {

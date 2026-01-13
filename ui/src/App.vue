@@ -73,6 +73,13 @@ onMounted(() => {
       </div>
       <div
         class="nav-item"
+        :class="{ active: activeNav === 'twin' }"
+        @click="activeNav = 'twin'"
+      >
+        <span>🏎️</span> Digital Twin
+      </div>
+      <div
+        class="nav-item"
         :class="{ active: activeNav === 'settings' }"
         @click="activeNav = 'settings'"
       >
@@ -94,65 +101,76 @@ onMounted(() => {
             <h3
               style="
                 color: var(--text-secondary);
-                font-size: 13px;
+                font-size: 11px;
                 text-transform: uppercase;
               "
             >
               Adapter Status
             </h3>
-            <div style="font-size: 24px; font-weight: 600; margin-top: 8px">
+            <div style="font-size: 20px; font-weight: 600; margin-top: 4px">
               CONNECTED
-            </div>
-            <div
-              style="
-                color: var(--accent-blue);
-                font-size: 12px;
-                margin-top: 4px;
-              "
-            >
-              MockAdapter (Virtual)
             </div>
           </div>
           <div class="card">
             <h3
               style="
                 color: var(--text-secondary);
-                font-size: 13px;
+                font-size: 11px;
                 text-transform: uppercase;
               "
             >
               Traffic Rate
             </h3>
-            <div style="font-size: 24px; font-weight: 600; margin-top: 8px">
-              124 <span style="font-size: 14px; font-weight: 400">msgs/s</span>
-            </div>
-            <div style="color: #10b981; font-size: 12px; margin-top: 4px">
-              ↑ Stabilized
+            <div style="font-size: 20px; font-weight: 600; margin-top: 4px">
+              124 msgs/s
             </div>
           </div>
           <div class="card">
             <h3
               style="
                 color: var(--text-secondary);
-                font-size: 13px;
+                font-size: 11px;
                 text-transform: uppercase;
               "
             >
-              Active Protocols
+              Nodes
             </h3>
-            <div style="font-size: 24px; font-weight: 600; margin-top: 8px">
-              CAN-FD, UDS
-            </div>
-            <div
-              style="
-                color: var(--text-secondary);
-                font-size: 12px;
-                margin-top: 4px;
-              "
-            >
-              3 nodes discovered
+            <div style="font-size: 20px; font-weight: 600; margin-top: 4px">
+              3 Active
             </div>
           </div>
+        </div>
+
+        <div
+          class="gauge-grid"
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+          "
+        >
+          <Gauge
+            :value="rpm"
+            :max="8000"
+            label="Engine RPM"
+            unit="RPM"
+            color="#38bdf8"
+          />
+          <Gauge
+            :value="speed"
+            :max="220"
+            label="Vehicle Speed"
+            unit="km/h"
+            color="#10b981"
+          />
+          <Gauge
+            :value="temp"
+            :max="150"
+            label="Coolant Temp"
+            unit="°C"
+            color="#f59e0b"
+          />
         </div>
 
         <div class="card" style="min-height: 410px">
@@ -175,6 +193,16 @@ onMounted(() => {
           </div>
           <SignalChart />
         </div>
+      </div>
+
+      <div v-if="activeNav === 'scripts'">
+        <header style="margin-bottom: 32px">
+          <h1>Cloud <span class="text-accent">Automation</span></h1>
+          <p style="color: var(--text-secondary)">
+            Script your automotive tests with high-level TypeScript API.
+          </p>
+        </header>
+        <ScriptEditor />
       </div>
     </main>
   </div>
