@@ -1,8 +1,21 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import SignalChart from "./components/SignalChart.vue";
+import Gauge from "./components/Gauge.vue";
+import ScriptEditor from "./components/ScriptEditor.vue";
 
 const activeNav = ref("dashboard");
+const rpm = ref(0);
+const speed = ref(0);
+const temp = ref(90);
+
+onMounted(() => {
+  setInterval(() => {
+    rpm.value = 2000 + Math.random() * 500;
+    speed.value = 80 + Math.random() * 5;
+    temp.value = 90 + Math.random() * 2;
+  }, 1000);
+});
 </script>
 
 <template>
