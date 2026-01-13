@@ -63,7 +63,7 @@ impl LinSession {
     }
 
     /// Sends a slave response request (Master requests data from slave)
-    pub async fn request_slave_response(&self, id: u8) -> AutoNexusResult<LinFrame> {
+    pub async fn request_slave_response(&self, _id: u8) -> AutoNexusResult<LinFrame> {
         // In a real adapter, this would trigger a header transmission and then a reception.
         // For the mock, we just call read_lin.
         self.adapter.read_lin().await

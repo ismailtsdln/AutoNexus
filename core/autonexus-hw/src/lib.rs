@@ -15,7 +15,7 @@ pub trait HardwareAdapter: Send + Sync {
     async fn read_can(&self) -> AutoNexusResult<CanFrame>;
 
     async fn send_lin(&self, frame: LinFrame) -> AutoNexusResult<()>;
-    async fn read_lin(&self) -> AutoNexusResult<CanFrame>; // Fixed type for consistency if needed, but keeping LinFrame for now
+    async fn read_lin(&self) -> AutoNexusResult<LinFrame>;
 
     fn is_open(&self) -> bool;
 }
@@ -75,12 +75,21 @@ impl HardwareAdapter for MockAdapter {
     }
 
     async fn send_lin(&self, _frame: LinFrame) -> AutoNexusResult<()> {
+        if !*self.is_open.lock().await {
+            return Err(autonexus_common::AutoNexusError::HardwareError);
+        }
         Ok(())
     }
 
-    async fn read_lin(&self) -> AutoNexusResult<CanFrame> {
-        // Changed to match trait if I decide to unify, but let's stick to LIN
-        Err(autonexus_common::AutoNexusError::NotSupported)
+    async fn read_lin(&self) -> AutoNexusResult<LinFrame> {
+        if !*self.is_open.lock().await {
+            return Err(autonexus_common::AutoNexusError::HardwareError);
+        }
+        Ok(LinFrame {
+            id: 0x3C,
+            data: vec![0x00, 0x11, 0x22, 0x33],
+            timestamp: 0,
+        })
     }
 
     fn is_open(&self) -> bool {

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import SignalChart from "./components/SignalChart.vue";
 
 const activeNav = ref("dashboard");
 </script>
@@ -121,43 +122,25 @@ const activeNav = ref("dashboard");
           </div>
         </div>
 
-        <div class="card" style="min-height: 200px">
-          <h2>Recent Activity</h2>
+        <div class="card" style="min-height: 410px">
           <div
             style="
-              margin-top: 16px;
               display: flex;
-              flex-direction: column;
-              gap: 12px;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 24px;
             "
           >
-            <div
-              style="
-                border-left: 2px solid var(--accent-blue);
-                padding-left: 12px;
-              "
-            >
-              <div style="font-size: 14px">
-                UDS: DiagnosticSessionControl(0x03)
-              </div>
-              <div style="font-size: 12px; color: var(--text-secondary)">
-                Response: [11 22 33] • 2m ago
-              </div>
-            </div>
-            <div
-              style="
-                border-left: 2px solid var(--accent-silver);
-                padding-left: 12px;
-              "
-            >
-              <div style="font-size: 14px">
-                CAN: Frame 0x123 sent successfully
-              </div>
-              <div style="font-size: 12px; color: var(--text-secondary)">
-                Length: 8 bytes • 5m ago
-              </div>
+            <h2>Live Signal Monitor</h2>
+            <div style="display: flex; gap: 8px">
+              <span
+                class="text-accent"
+                style="font-size: 12px; font-weight: 600"
+                >● LIVE</span
+              >
             </div>
           </div>
+          <SignalChart />
         </div>
       </div>
     </main>
