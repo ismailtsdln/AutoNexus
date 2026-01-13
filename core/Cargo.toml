@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "autonexus-hw",
+    "autonexus-protocols",
+    "autonexus-common", "autonexus-cli",
+]
+resolver = "2"
