@@ -11,6 +11,26 @@ const activeNav = ref("dashboard");
   <div class="dashboard">
     <aside class="sidebar">
       <div
+        style="
+          padding: 0 24px 24px 24px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 8px;
+        "
+      >
+        <img src="/assets/logo.svg" width="36" height="36" alt="Logo" />
+        <span
+          style="
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+          "
+          >AutoNexus</span
+        >
+      </div>
+      <div
         class="nav-item"
         :class="{ active: activeNav === 'dashboard' }"
         @click="activeNav = 'dashboard'"
