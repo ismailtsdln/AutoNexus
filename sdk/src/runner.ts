@@ -1,5 +1,5 @@
 import { NodeVM } from 'vm2';
-import * as AutoNexus from './index';
+import * as AutoNexus from './index.js';
 
 export interface ScriptResult {
     success: boolean;
@@ -19,7 +19,7 @@ export class ScriptRunner {
             },
             require: {
                 external: true,
-                builtin: ['*'],
+                builtin: ['util', 'buffer'], // Restrict to safe essentials
                 root: './',
             }
         });

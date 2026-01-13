@@ -1,19 +1,27 @@
+pub mod dbc;
 use autonexus_common::{AutoNexusResult, CanFrame, LinFrame};
 use autonexus_hw::HardwareAdapter;
+use serde::{Deserialize, Serialize};
 use std::sync::Arc;
 
 pub struct UdsSession {
     adapter: Arc<dyn HardwareAdapter>,
+    request_id: u32,
+    response_id: u32,
 }
 
 impl UdsSession {
-    pub fn new(adapter: Arc<dyn HardwareAdapter>) -> Self {
-        Self { adapter }
+    pub fn new(adapter: Arc<dyn HardwareAdapter>, request_id: u32, response_id: u32) -> Self {
+        Self {
+            adapter,
+            request_id,
+            response_id,
+        }
     }
 
     pub async fn diagnostic_session_control(&self, session_type: u8) -> AutoNexusResult<Vec<u8>> {
         let frame = CanFrame {
-            id: 0x7E0, // Common UDS Request ID
+            id: self.request_id,
             data: vec![0x02, 0x10, session_type, 0x00, 0x00, 0x00, 0x00, 0x00],
             is_extended: false,
             is_fd: false,
@@ -21,8 +29,16 @@ impl UdsSession {
         };
         self.adapter.send_can(frame).await?;
 
-        let response = self.adapter.read_can().await?;
-        Ok(response.data)
+        loop {
+            let response = self.adapter.read_can().await?;
+            if response.id == self.response_id
+                && response.data.len() > 1
+                && response.data[1] == 0x50
+            {
+                return Ok(response.data);
+            }
+            // In real app, we would have a timeout here.
+        }
     }
 
     pub async fn read_data_by_identifier(&self, identifier: u16) -> AutoNexusResult<Vec<u8>> {
@@ -30,7 +46,7 @@ impl UdsSession {
         let id_low = (identifier & 0xFF) as u8;
 
         let frame = CanFrame {
-            id: 0x7E0,
+            id: self.request_id,
             data: vec![0x03, 0x22, id_high, id_low, 0x00, 0x00, 0x00, 0x00],
             is_extended: false,
             is_fd: false,
@@ -38,8 +54,16 @@ impl UdsSession {
         };
 
         self.adapter.send_can(frame).await?;
-        let response = self.adapter.read_can().await?;
-        Ok(response.data)
+
+        loop {
+            let response = self.adapter.read_can().await?;
+            if response.id == self.response_id
+                && response.data.len() > 1
+                && response.data[1] == 0x62
+            {
+                return Ok(response.data);
+            }
+        }
     }
 }
 

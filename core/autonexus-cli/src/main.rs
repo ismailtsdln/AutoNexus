@@ -86,7 +86,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             );
         }
         Commands::Uds { sub } => {
-            let uds = UdsSession::new(adapter.clone());
+            let uds = UdsSession::new(adapter.clone(), 0x7E0, 0x7E8);
             match sub {
                 UdsCommands::Session { session } => {
                     let response = uds.diagnostic_session_control(session).await?;

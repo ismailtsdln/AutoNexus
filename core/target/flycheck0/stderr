@@ -1,5 +1,5 @@
-   0.170492542s  INFO prepare_target{force=false package_id=autonexus-cli v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli) target="autonexus-cli"}: cargo::core::compiler::fingerprint: fingerprint error for autonexus-cli v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli)/Check { test: false }/TargetInner { name: "autonexus-cli", doc: true, ..: with_path("/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli/src/main.rs", Edition2024) }
-   0.170511542s  INFO prepare_target{force=false package_id=autonexus-cli v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli) target="autonexus-cli"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/target/debug/.fingerprint/autonexus-cli-571de201327f90ea/bin-autonexus-cli`
+   0.058538167s  INFO prepare_target{force=false package_id=autonexus-cli v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli) target="autonexus-cli"}: cargo::core::compiler::fingerprint: fingerprint error for autonexus-cli v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli)/Check { test: false }/TargetInner { name: "autonexus-cli", doc: true, ..: with_path("/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli/src/main.rs", Edition2024) }
+   0.058553292s  INFO prepare_target{force=false package_id=autonexus-cli v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli) target="autonexus-cli"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/target/debug/.fingerprint/autonexus-cli-2bd039e8998d9d55/bin-autonexus-cli`
 
 Caused by:
     No such file or directory (os error 2)
@@ -23,8 +23,8 @@ Stack backtrace:
   15: std::rt::lang_start::<()>::{closure#0}
   16: std::rt::lang_start_internal
   17: _main
-   0.193674417s  INFO prepare_target{force=false package_id=autonexus-protocols v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols) target="autonexus_protocols"}: cargo::core::compiler::fingerprint: fingerprint error for autonexus-protocols v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols)/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("autonexus_protocols", ["lib"], "/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols/src/lib.rs", Edition2024) }
-   0.193687917s  INFO prepare_target{force=false package_id=autonexus-protocols v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols) target="autonexus_protocols"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/target/debug/.fingerprint/autonexus-protocols-fdb691712aca2e5f/lib-autonexus_protocols`
+   0.063944459s  INFO prepare_target{force=false package_id=autonexus-protocols v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols) target="autonexus_protocols"}: cargo::core::compiler::fingerprint: fingerprint error for autonexus-protocols v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols)/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("autonexus_protocols", ["lib"], "/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols/src/lib.rs", Edition2024) }
+   0.063953959s  INFO prepare_target{force=false package_id=autonexus-protocols v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols) target="autonexus_protocols"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/target/debug/.fingerprint/autonexus-protocols-4e38c63cab33070f/lib-autonexus_protocols`
 
 Caused by:
     No such file or directory (os error 2)
@@ -49,8 +49,8 @@ Stack backtrace:
   16: std::rt::lang_start::<()>::{closure#0}
   17: std::rt::lang_start_internal
   18: _main
-   0.197640959s  INFO prepare_target{force=false package_id=autonexus-cli v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli) target="autonexus-cli"}: cargo::core::compiler::fingerprint: fingerprint error for autonexus-cli v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli)/Check { test: true }/TargetInner { name: "autonexus-cli", doc: true, ..: with_path("/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli/src/main.rs", Edition2024) }
-   0.197649125s  INFO prepare_target{force=false package_id=autonexus-cli v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli) target="autonexus-cli"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/target/debug/.fingerprint/autonexus-cli-36964a4d47307360/test-bin-autonexus-cli`
+   0.065988209s  INFO prepare_target{force=false package_id=autonexus-cli v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli) target="autonexus-cli"}: cargo::core::compiler::fingerprint: fingerprint error for autonexus-cli v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli)/Check { test: true }/TargetInner { name: "autonexus-cli", doc: true, ..: with_path("/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli/src/main.rs", Edition2024) }
+   0.065995750s  INFO prepare_target{force=false package_id=autonexus-cli v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli) target="autonexus-cli"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/target/debug/.fingerprint/autonexus-cli-42381be91ad57430/test-bin-autonexus-cli`
 
 Caused by:
     No such file or directory (os error 2)
@@ -74,8 +74,8 @@ Stack backtrace:
   15: std::rt::lang_start::<()>::{closure#0}
   16: std::rt::lang_start_internal
   17: _main
-   0.198950375s  INFO prepare_target{force=false package_id=autonexus-protocols v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols) target="autonexus_protocols"}: cargo::core::compiler::fingerprint: fingerprint error for autonexus-protocols v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols)/Check { test: true }/TargetInner { name_inferred: true, ..: lib_target("autonexus_protocols", ["lib"], "/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols/src/lib.rs", Edition2024) }
-   0.198956959s  INFO prepare_target{force=false package_id=autonexus-protocols v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols) target="autonexus_protocols"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/target/debug/.fingerprint/autonexus-protocols-d9e4fc8cc8b5b25e/test-lib-autonexus_protocols`
+   0.066420375s  INFO prepare_target{force=false package_id=autonexus-protocols v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols) target="autonexus_protocols"}: cargo::core::compiler::fingerprint: fingerprint error for autonexus-protocols v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols)/Check { test: true }/TargetInner { name_inferred: true, ..: lib_target("autonexus_protocols", ["lib"], "/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols/src/lib.rs", Edition2024) }
+   0.066424792s  INFO prepare_target{force=false package_id=autonexus-protocols v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols) target="autonexus_protocols"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/target/debug/.fingerprint/autonexus-protocols-e9dace6684193c3a/test-lib-autonexus_protocols`
 
 Caused by:
     No such file or directory (os error 2)
@@ -100,6 +100,5 @@ Stack backtrace:
   16: std::rt::lang_start_internal
   17: _main
     Checking autonexus-protocols v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-protocols)
-error: could not compile `autonexus-protocols` (lib) due to 2 previous errors
-warning: build failed, waiting for other jobs to finish...
-error: could not compile `autonexus-protocols` (lib test) due to 2 previous errors
+    Checking autonexus-cli v0.1.0 (/Users/ismailtasdelen/Documents/GitHub/AutoNexus/core/autonexus-cli)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.25s

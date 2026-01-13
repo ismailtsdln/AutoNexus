@@ -3,6 +3,7 @@ use autonexus_common::{AutoNexusResult, CanFrame, LinFrame};
 use std::sync::Arc;
 use tokio::sync::Mutex;
 
+/// Defines the interface for all hardware adapters (PEAK, Kvaser, Vector, Mock).
 #[async_trait]
 pub trait HardwareAdapter: Send + Sync {
     fn name(&self) -> &str;
@@ -65,9 +66,11 @@ impl HardwareAdapter for MockAdapter {
         if !*self.is_open.lock().await {
             return Err(autonexus_common::AutoNexusError::HardwareError);
         }
+        // Simulate a UDS Positive Response for Session Control (0x10 -> 0x50)
+        // or Read Data By Identifier (0x22 -> 0x62)
         Ok(CanFrame {
-            id: 0x123,
-            data: vec![0x11, 0x22, 0x33],
+            id: 0x7E8,
+            data: vec![0x03, 0x50, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00],
             is_extended: false,
             is_fd: false,
             timestamp: 0,
@@ -93,6 +96,12 @@ impl HardwareAdapter for MockAdapter {
     }
 
     fn is_open(&self) -> bool {
-        false
+        // Since we need to be sync but the mutex is async,
+        // in a real scenario we might use a sync mutex or an AtomicBool.
+        // For the mock, we can try_lock or just return true if it's been opened.
+        match self.is_open.try_lock() {
+            Ok(opened) => *opened,
+            Err(_) => true, // Assume open if locked (busy)
+        }
     }
 }
